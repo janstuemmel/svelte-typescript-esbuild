@@ -1,0 +1,7 @@
+node_modules
+dist
+
+jest.config.js
+svelte.config.js
+.eslintrc.js
+scripts

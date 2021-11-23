@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const esbuild = require('esbuild');
+const esbuildSvelte = require('esbuild-svelte');
+const copyPlugin = require('esbuild-plugin-copy').default;
+
+const __DEV = process.argv.includes('--dev')
+
+esbuild.build({
+  entryPoints: [
+    './app/app.ts'
+  ],
+  outfile: './dist/main.js',
+  bundle: true,
+  minify: __DEV ? false : true,
+  logLevel: 'info',
+  watch: process.argv.includes('--watch') ? true : false,
+  sourcemap: __DEV ? 'inline' : 'external',
+  plugins: [
+    esbuildSvelte(require('../svelte.config')),
+    copyPlugin({
+      assets: {
+        from: ['app/index.html'],
+        to: ['.'],
+      }
+    })
+  ],
+}).catch(() => process.exit(1));
