@@ -40,6 +40,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'eol-last': ["error", "always"],
     'max-len': ['error', { 'code': 120 }],
     'no-template-curly-in-string': 'off',
     'object-curly-newline': ['error', {
