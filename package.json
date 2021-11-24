@@ -10,7 +10,8 @@
     "build": "scripts/build",
     "build:dev": "scripts/build --dev",
     "build:watch": "scripts/build --dev --watch",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "lint": "eslint app"
   },
   "keywords": [],
   "author": "",
